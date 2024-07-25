@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { Select, Box } from '@chakra-ui/react';
+import { Select } from '@chakra-ui/react';
 import { TaskContext } from '../context/TaskContext';
 import { FilterOption, TaskStatus } from '../types';
+import { SET_FILTER } from '../types/actionTypes';
 
 const TaskFilter: React.FC = () => {
   const { state, dispatch } = useContext(TaskContext);
@@ -9,7 +10,7 @@ const TaskFilter: React.FC = () => {
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value as TaskStatus | '';
     const filter = value === '' ? null : value as FilterOption;
-    dispatch({ type: 'SET_FILTER', payload: filter });
+    dispatch({ type: SET_FILTER, payload: filter });
   };
 
   return (

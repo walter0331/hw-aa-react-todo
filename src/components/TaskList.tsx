@@ -1,11 +1,16 @@
 import React, { useContext, useCallback } from 'react';
+import { Box, List, ListItem } from '@chakra-ui/react';
 import { TaskContext } from '../context/TaskContext';
 import useFilteredTasks from '../hooks/useFilteredTasks';
 import TaskItem from './TaskItem';
 import SortOrderSelector from './SortOrderSelector';
 import TaskFilter from './TaskFilter';
 import SearchFilter from './SearchFilter';
-import { Box, List, ListItem } from '@chakra-ui/react';
+import {
+  TOGGLE_TASK,
+  DELETE_TASK,
+  UPDATE_TASK,
+} from '../types/actionTypes';
 
 const TaskList: React.FC = () => {
   const { state, dispatch } = useContext(TaskContext);
@@ -13,15 +18,15 @@ const TaskList: React.FC = () => {
   const filteredTasks = useFilteredTasks(state.tasks, state.filter, state.searchQuery);
 
   const handleToggle = useCallback((id: string) => {
-    dispatch({ type: 'TOGGLE_TASK', payload: id });
+    dispatch({ type: TOGGLE_TASK, payload: id });
   }, [dispatch]);
 
   const handleDelete = useCallback((id: string) => {
-    dispatch({ type: 'DELETE_TASK', payload: id });
+    dispatch({ type: DELETE_TASK, payload: id });
   }, [dispatch]);
 
   const handleUpdate = useCallback((id: string, description: string) => {
-    dispatch({ type: 'UPDATE_TASK', payload: { id, description } });
+    dispatch({ type: UPDATE_TASK, payload: { id, description } });
   }, [dispatch]);
 
   return (

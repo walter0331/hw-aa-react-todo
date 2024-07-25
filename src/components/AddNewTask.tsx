@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Box, Flex, Button, Input } from '@chakra-ui/react';
 import { TaskContext } from '../context/TaskContext';
+import { ADD_TASK } from '../types/actionTypes';
 
 let currentId = 1;
 
@@ -16,7 +17,7 @@ const AddNewTask: React.FC = () => {
     event.preventDefault();
     if (taskDescription.trim() === '') return;
     dispatch({
-      type: 'ADD_TASK',
+      type: ADD_TASK,
       payload: {
         id: guid(),
         description: taskDescription,
