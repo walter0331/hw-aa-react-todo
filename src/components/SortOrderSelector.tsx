@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Select } from '@chakra-ui/react';  // Import Select from Chakra UI
+import { Select, Box } from '@chakra-ui/react';  // Import Select from Chakra UI
 import { TaskContext } from '../context/TaskContext';
 import { SortType } from '../types';
 

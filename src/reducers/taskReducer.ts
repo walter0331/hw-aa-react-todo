@@ -25,6 +25,9 @@ export const taskReducer = (state: State, action: Action): State => {
       return {
         ...state,
         tasks: sortTasksByCreatedAt(newTasks, state.sortOrder),
+
+        // Reset the filter to show all tasks when a new task is added
+        filter: null,
       };
     case 'TOGGLE_TASK':
       return {
@@ -57,6 +60,11 @@ export const taskReducer = (state: State, action: Action): State => {
       return {
         ...state,
         filter: payload,
+      };
+    case 'SET_SEARCH_QUERY':
+      return {
+        ...state,
+        searchQuery: payload,
       };
     default:
       return state;

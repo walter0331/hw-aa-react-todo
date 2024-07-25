@@ -3,12 +3,14 @@ import { TaskContext } from '../context/TaskContext';
 import useFilteredTasks from '../hooks/useFilteredTasks';
 import TaskItem from './TaskItem';
 import SortOrderSelector from './SortOrderSelector';
-import TaskFilter from './TaskFilter';  // New component import
+import TaskFilter from './TaskFilter';
+import SearchFilter from './SearchFilter';
 import { Box, List, ListItem } from '@chakra-ui/react';
 
 const TaskList: React.FC = () => {
   const { state, dispatch } = useContext(TaskContext);
-  const filteredTasks = useFilteredTasks(state.tasks, state.filter);
+
+  const filteredTasks = useFilteredTasks(state.tasks, state.filter, state.searchQuery);
 
   const handleToggle = useCallback((id: string) => {
     dispatch({ type: 'TOGGLE_TASK', payload: id });
@@ -25,9 +27,14 @@ const TaskList: React.FC = () => {
   return (
     <Box>
       <Box mb={4}>
-        <TaskFilter />  {/* Use TaskFilter component */}
+        <SortOrderSelector />
       </Box>
-      <SortOrderSelector />
+      <Box mb={4}>
+        <TaskFilter />
+      </Box>
+      <Box mb={4}>
+        <SearchFilter />
+      </Box>
       <List mt={4}>
         {filteredTasks.map(task => (
           <ListItem key={task.id}>

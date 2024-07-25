@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
     <Container maxW="container.md" p={4}>
       <Box textAlign="center" mb={4}>
-        <Heading as="h1">TODO list</Heading>
+        <Heading as="h1">Todo List</Heading>
       </Box>
       <AddNewTask />
       <TaskList />

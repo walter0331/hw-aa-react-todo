@@ -21,6 +21,7 @@ export interface State {
   tasks: Task[];
   filter: FilterOption;
   sortOrder: SortType;
+  searchQuery: string;
 }
 
 export interface Action {

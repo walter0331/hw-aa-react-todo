@@ -10,7 +10,8 @@ export interface TaskContextProps {
 const initialState: State = {
   tasks: [],
   filter: null,
-  sortOrder: SortType.ASCENDING,
+  sortOrder: SortType.DESCENDING,
+  searchQuery: ''
 };
 
 const TaskContext = createContext<TaskContextProps>({
