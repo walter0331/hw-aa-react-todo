@@ -7,7 +7,7 @@ export interface TaskContextProps {
   dispatch: React.Dispatch<Action>;
 }
 
-const initialState: State = {
+export const initialState: State = {
   tasks: [],
   filter: null,
   sortOrder: SortType.DESCENDING,

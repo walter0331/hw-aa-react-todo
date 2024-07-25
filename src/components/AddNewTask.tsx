@@ -21,7 +21,6 @@ const AddNewTask: React.FC = () => {
       payload: {
         id: guid(),
         description: taskDescription,
-        completed: false,
         createdAt: Date.now(),
       },
     });
@@ -32,6 +31,7 @@ const AddNewTask: React.FC = () => {
     <Box as="form" onSubmit={handleSubmit} position="relative" mb={4}>
       <Flex mb={4}>
         <Input
+          data-testid="add-task-input"
           placeholder="Enter task description"
           value={taskDescription}
           onChange={(e) => setTaskDescription(e.target.value)}
@@ -40,6 +40,7 @@ const AddNewTask: React.FC = () => {
       <Flex justifyContent="right">
         <Button
           type="submit"
+          data-testid="add-task-button"
           colorScheme="teal"
         >
           Add Task
