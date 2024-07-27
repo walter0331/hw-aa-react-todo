@@ -77,7 +77,7 @@ src/
 
 ### Prerequisites
 
-- Node.js
+- Node.js (v20.10.0)
 - npm or yarn
 
 ### Installation
