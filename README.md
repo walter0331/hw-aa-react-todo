@@ -1,46 +1,115 @@
-# Getting Started with Create React App
+# Todo List Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Live Demo
 
-## Available Scripts
+[https://wc-hw-aa-react-todo.surge.sh/](https://wc-hw-aa-react-todo.surge.sh/)
 
-In the project directory, you can run:
+## Features
 
-### `yarn start`
+- **Add Tasks**: Users can add tasks with a short description.
+- **View Tasks**: Users can view a list of all tasks, both completed and uncompleted.
+- **Toggle Task Status**: Users can mark tasks as completed or uncompleted.
+- **Delete Tasks**: Users can delete tasks.
+- **Update Task Description**: Users can update the description of existing tasks.
+- **Sort Tasks**: Users can sort tasks by creation time.
+- **Filter/Search Tasks**: Users can filter or search tasks based on specific criteria.
+- **Responsive UI**: The application is responsive and works well on various devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Structure
+```
+src/
+  App.tsx
+  components/
+    AddNewTask.tsx
+    SearchFilter.tsx
+    SortOrderSelector.tsx
+    TaskFilter.tsx
+    TaskItem.tsx
+    TaskList.tsx
+  context/
+    TaskContext.tsx
+  hooks/
+    useFilteredTasks.ts
+  reducers/
+    taskReducer.test.ts
+    taskReducer.ts
+  tests/
+    intergration/
+      reducerAndHooks.test.tsx
+  types/
+    actionTypes.ts
+    index.ts
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Codebase Architecture
 
-### `yarn test`
+- **Components**: Reusable UI components located in the [`src/components`](src/components) directory.
+- **Context**: Context API for state management located in the [`src/context`](src/context) directory.
+- **Reducers**: Reducer functions for managing state located in the [`src/reducers`](src/reducers) directory.
+- **Hooks**: Custom hooks located in the [`src/hooks`](src/hooks) directory.
+- **Types**: TypeScript type definitions located in the [`src/types`](src/types) directory.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Key Components
 
-### `yarn build`
+- **App.tsx**: The main component that renders the application layout.
+- **TaskList.tsx**: Displays the list of tasks.
+- **TaskItem.tsx**: Represents an individual task item with options to edit, delete, and toggle its status.
+- **AddNewTask.tsx**: A form to add new tasks.
+- **TaskFilter.tsx**: Provides filtering options for tasks.
+- **SearchFilter.tsx**: Allows users to search tasks.
+- **SortOrderSelector.tsx**: Allows users to sort tasks by creation time.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### State Management
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **TaskContext.tsx**: Provides the context for managing tasks.
+- **taskReducer.ts**: Contains the reducer logic for handling task-related actions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Custom Hooks
 
-### `yarn eject`
+- **useFilteredTasks.ts**: A custom hook for filtering tasks based on the selected criteria.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Types
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **index.ts**: Defines TypeScript types used across the application.
+- **actionTypes.ts**: Defines action types for the reducer.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Getting Started
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Prerequisites
 
-## Learn More
+- Node.js
+- npm or yarn
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Install dependencies:
+```sh
+npm install
+# or
+yarn install
+```
+
+### Running the Application
+To start the application in development mode, run:
+```sh
+npm start
+# or
+yarn start
+```
+Open http://localhost:3000 to view it in the browser.
+
+### Running Tests
+To run the test suite, use:
+```
+npm test
+# or
+yarn test
+```
+
+### Building the Application
+```
+npm run build
+# or
+yarn build
+```
+The build artifacts will be stored in the build directory.
