@@ -51,7 +51,7 @@ const TaskItem: React.FC<TaskItemProps> = React.memo(({ task, onToggle, onDelete
 
       {!isEditing && (
         <Flex justifyContent="right">
-          <Button colorScheme="blue" onClick={handleEdit}>
+          <Button colorScheme="blue" onClick={handleEdit}>  
             Edit
           </Button>
           <Button colorScheme="red" ml={2} onClick={() => onDelete(task.id)}>
